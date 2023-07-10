@@ -5,6 +5,7 @@
     <div class="row">
         <ul class="list-group" id="messages">
           {% for msg in likes %}
+            {% if msg.user.id != user.id %}
             <li class="list-group-item">
               <a href="/messages/{{ msg.id  }}" class="message-link"/>
               <a href="/users/{{ msg.user.id }}">
@@ -20,13 +21,13 @@
                 <button class="
                   btn 
                   btn-sm 
-                  {{'btn-primary'}}"
-                >
+                  {{'btn-primary'}}">
                   <i class="fa fa-thumbs-up"></i> 
                 </button>
               </form>
               {% endif %}
             </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>
